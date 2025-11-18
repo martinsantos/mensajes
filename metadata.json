@@ -1,0 +1,5 @@
+{
+  "name": "Gemini News Hub",
+  "description": "A dynamic news application frontend built with React and Tailwind CSS. It features a public news feed and a comprehensive admin panel for managing content, including categories (tropos) and articles. The admin panel leverages Gemini API for content generation and web scraping to streamline article creation.",
+  "requestFramePermissions": []
+}
