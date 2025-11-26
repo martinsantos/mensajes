@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Tropo {
+  id        Int       @id @default(autoincrement())
+  nombre    String    @unique
+  slug      String    @unique
+  color     String
+  noticias  Noticia[]
+}
+
+model Noticia {
+  id                Int       @id @default(autoincrement())
+  titulo            String
+  slug              String    @unique
+  bajada            String
+  cuerpo            String
+  imagen_url        String
+  is_image_external Boolean   @default(true)
+  tropo             Tropo     @relation(fields: [tropo_id], references: [id])
+  tropo_id          Int
+  timestamp         DateTime  @default(now())
+  publishDate       DateTime
+  estado            String
+  author            String?
+}
